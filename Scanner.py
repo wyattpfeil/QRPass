@@ -3,6 +3,7 @@ from imutils.video import VideoStream
 from pyzbar import pyzbar
 import os
 import argparse
+import keyboard
 import datetime
 import imutils
 import time
@@ -52,6 +53,7 @@ while True:
 		barcodeData = barcode.data.decode("utf-8")
 		barcodeType = barcode.type
 		pyperclip.copy(barcodeData)
+		keyboard.write(barcodeData)
 		notify(title    = 'Copied!',
 			subtitle = 'Password Copied',
 			message  = 'Your password has been copied to your clipboard!')
